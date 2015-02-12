@@ -1,1 +1,0 @@
-require_relative 'person_file_parser/parser'

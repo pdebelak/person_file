@@ -1,6 +1,6 @@
 require_relative '../spec_helper'
 
-module PersonFileParser
+module PersonFile
   describe Parser do
 
     describe '#parse' do

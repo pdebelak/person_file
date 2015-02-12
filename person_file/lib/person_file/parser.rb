@@ -1,4 +1,4 @@
-module PersonFileParser
+module PersonFile
   class Parser
 
     def parse(entry)

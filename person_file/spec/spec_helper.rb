@@ -1,7 +1,7 @@
 require 'simplecov'
 SimpleCov.start
 
-require_relative '../lib/person_file_parser'
+require_relative '../lib/person_file'
 require 'rspec'
 
 RSpec.configure do |config|
