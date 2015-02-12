@@ -42,6 +42,13 @@ module PersonFile
                      date_of_birth: '03/20/1985' })
         end
       end
+
+      context 'improperly formatted string' do
+
+        it 'raises and ArgumentError' do
+          expect{parser.parse 'Debelak Peter male orange'}.to raise_error ArgumentError
+        end
+      end
     end
   end
 end

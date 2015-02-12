@@ -12,7 +12,9 @@ module PersonFile
       KEYS = [:last_name, :first_name, :gender, :favorite_color, :date_of_birth]
 
       def split(entry)
-        entry.split(separator entry)
+        split = entry.split(separator entry)
+        raise ArgumentError unless split.count == KEYS.count
+        split
       end
 
       def separator(entry)
