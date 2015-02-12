@@ -9,7 +9,7 @@ module PersonFileParser
       parsed_file = []
       File.open(file, "r") do |f|
         f.each_line do |line|
-          parsed_file << separated(line)
+          parsed_file << separated(line.chomp)
         end
       end
       parsed_file
@@ -26,16 +26,11 @@ module PersonFileParser
         line.split(separator).each_with_index do |item, index|
           separated[KEYS[index]] = item
         end
-        parse_date_of_birth separated
+        separated
       end
 
       def separator
         @separator ||= determine_separator
-      end
-
-      def parse_date_of_birth(parsed_line)
-        parsed_line[:date_of_birth] = Date.strptime(parsed_line[:date_of_birth], "%m/%d/%Y")
-        parsed_line
       end
 
       def determine_separator

@@ -1,5 +1,4 @@
 require_relative '../spec_helper'
-require 'date'
 
 module PersonFileParser
   describe Parser do
@@ -29,7 +28,7 @@ module PersonFileParser
                                              first_name: 'Peter', 
                                              gender: 'male', 
                                              favorite_color: 'orange', 
-                                             date_of_birth: Date.parse('1985-03-20') })
+                                             date_of_birth: '03/20/1985' })
         end
       end
 
@@ -41,7 +40,7 @@ module PersonFileParser
                                              first_name: 'Peter', 
                                              gender: 'male', 
                                              favorite_color: 'orange', 
-                                             date_of_birth: Date.parse('1985-03-20') })
+                                             date_of_birth: '03/20/1985' })
         end
       end
 
@@ -53,7 +52,7 @@ module PersonFileParser
                                              first_name: 'Peter', 
                                              gender: 'male', 
                                              favorite_color: 'orange', 
-                                             date_of_birth: Date.parse('1985-03-20') })
+                                             date_of_birth: '03/20/1985' })
         end
       end
     end
