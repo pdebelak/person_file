@@ -40,6 +40,7 @@ module PersonFile
     describe '#write' do
 
       after(:each) do
+        # clean up the database file
         File.open('spec/fixtures/files/spec_database', 'w') {}
       end
 

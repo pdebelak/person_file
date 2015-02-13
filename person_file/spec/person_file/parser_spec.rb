@@ -43,6 +43,18 @@ module PersonFile
         end
       end
 
+      context 'with an already parsed value' do
+
+        it 'does nothing' do
+          value = { last_name: 'Debelak', 
+                     first_name: 'Peter', 
+                     gender: 'male', 
+                     favorite_color: 'orange', 
+                     date_of_birth: '03/20/1985' }
+          expect(parser.parse value).to eq value
+        end
+      end
+
       context 'improperly formatted string' do
 
         it 'raises and ArgumentError' do

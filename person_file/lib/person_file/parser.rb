@@ -2,6 +2,7 @@ module PersonFile
   class Parser
 
     def parse(entry)
+      return entry if parsed?(entry)
       split(entry).each_with_index.map do |item, index|
         [KEYS[index], item]
       end.to_h
@@ -23,6 +24,10 @@ module PersonFile
         elsif entry =~ /, /
           ", "
         end
+      end
+
+      def parsed?(entry)
+        entry.is_a?(Hash) && entry.keys.sort == KEYS.sort
       end
   end
 end
