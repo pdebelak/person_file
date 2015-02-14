@@ -3,7 +3,7 @@ module PersonFile
 
   class API < Grape::API
 
-    require 'json'
+    format :json
 
     namespace :records do
 
@@ -17,17 +17,17 @@ module PersonFile
 
       desc "Get records sorted by gender then last name ascending"
       get '/gender' do
-        Sorter.new.by_gender.to_json
+        Sorter.new.by_gender
       end
 
       desc "Get records sorted by birth date"
       get '/birthdate' do
-        Sorter.new.by_birthday.to_json
+        Sorter.new.by_birthday
       end
 
       desc "Get records sorted by last name descending"
       get '/name' do
-        Sorter.new.by_last_name_descending.to_json
+        Sorter.new.by_last_name_descending
       end
     end
   end

@@ -1,7 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'rspec'
-gem 'simplecov', require: false
+group :test do
+  gem 'rspec'
+  gem 'simplecov', require: false
+  gem 'rack-test', require: 'rack/test'
+end
 
 gem 'grape'
-gem 'rack-test', require: 'rack/test'
