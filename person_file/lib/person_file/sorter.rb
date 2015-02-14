@@ -1,8 +1,8 @@
 module PersonFile
   class Sorter
 
-    def initialize(data)
-      @data = data
+    def initialize
+      @data = Database.new.read
     end
 
     def by_gender

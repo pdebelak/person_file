@@ -18,6 +18,14 @@ module PersonFile
       File.open(database_file, 'a') { |f| f.puts normalize(data) }
     end
 
+    def create(*files)
+      files.each do |file|
+        File.foreach(file) do |line|
+          write(line)
+        end
+      end
+    end
+
     private
 
       attr_reader :parser, :database_file

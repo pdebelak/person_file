@@ -67,5 +67,31 @@ module PersonFile
         end
       end
     end
+
+    describe '#create' do
+
+      after(:each) do
+        # clean up the database file
+        File.open('spec/fixtures/files/spec_database', 'w') {}
+      end
+
+      it 'adds contents of input file to database_file' do
+        db.create('spec/fixtures/files/space_separated_file')
+        expect(File.read('spec/fixtures/files/spec_database'))
+            .to eq("Debelak Peter male orange 03/20/1985\nHanson Alana female brown 02/22/1984\n")
+      end
+
+      it 'stores data as space separated' do
+        db.create('spec/fixtures/files/pipe_separated_file')
+        expect(File.read('spec/fixtures/files/spec_database'))
+            .to eq("Debelak Peter male orange 03/20/1985\nHanson Alana female brown 02/22/1984\n")
+      end
+
+      it 'handles multiple files' do
+        db.create('spec/fixtures/files/space_separated_file', 'spec/fixtures/files/pipe_separated_file')
+        expect(File.read('spec/fixtures/files/spec_database'))
+            .to eq("Debelak Peter male orange 03/20/1985\nHanson Alana female brown 02/22/1984\nDebelak Peter male orange 03/20/1985\nHanson Alana female brown 02/22/1984\n")
+      end
+    end
   end
 end
