@@ -78,7 +78,7 @@ module PersonFile
       it 'adds contents of input file to database_file' do
         db.create('spec/fixtures/files/space_separated_file')
         expect(File.read('spec/fixtures/files/spec_database'))
-            .to eq("Debelak Peter male orange 03/20/1985\nHanson Alana female brown 02/22/1984\n")
+            .to eq("Davidson Paul male blue 02/10/1985\nHansel Gretel female purple 04/12/1984\n")
       end
 
       it 'stores data as space separated' do
@@ -90,7 +90,7 @@ module PersonFile
       it 'handles multiple files' do
         db.create('spec/fixtures/files/space_separated_file', 'spec/fixtures/files/pipe_separated_file')
         expect(File.read('spec/fixtures/files/spec_database'))
-            .to eq("Debelak Peter male orange 03/20/1985\nHanson Alana female brown 02/22/1984\nDebelak Peter male orange 03/20/1985\nHanson Alana female brown 02/22/1984\n")
+            .to eq("Davidson Paul male blue 02/10/1985\nHansel Gretel female purple 04/12/1984\nDebelak Peter male orange 03/20/1985\nHanson Alana female brown 02/22/1984\n")
       end
     end
   end

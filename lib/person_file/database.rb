@@ -1,7 +1,7 @@
 module PersonFile
   class Database
 
-    def initialize(database_file=nil)
+    def initialize(database_file='database_file')
       @parser = Parser.new
       @database_file = database_file
     end
