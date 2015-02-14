@@ -1,6 +1,8 @@
 module PersonFile
   class Sorter
 
+    require 'date'
+
     def initialize
       @data = Database.new.read
     end
