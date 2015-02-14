@@ -29,5 +29,61 @@ module PersonFile
       end
     end
 
+    describe 'get routes' do
+
+      before(:each) do
+        allow_any_instance_of(Database).to receive(:read).and_return(
+          [{ last_name: 'Debelak', 
+             first_name: 'Peter', 
+             gender: 'male', 
+             favorite_color: 'orange', 
+             date_of_birth: '03/20/1983' },
+           { last_name: 'Hanson', 
+             first_name: 'Alana', 
+             gender: 'female', 
+             favorite_color: 'brown', 
+             date_of_birth: '02/22/1984' }])
+      end
+
+      describe '/records/gender' do
+
+        it 'responds to the route' do
+          get '/records/gender'
+          expect(last_response.status).to eq 200
+        end
+
+        it 'returns properly sorted json' do
+          get '/records/gender'
+          expect(last_response.body).to eq '[{"last_name":"Hanson","first_name":"Alana","gender":"female","favorite_color":"brown","date_of_birth":"02/22/1984"},{"last_name":"Debelak","first_name":"Peter","gender":"male","favorite_color":"orange","date_of_birth":"03/20/1983"}]'
+        end
+      end
+
+
+      describe '/records/birthdate' do
+
+        it 'responds to the route' do
+          get '/records/birthdate'
+          expect(last_response.status).to eq 200
+        end
+
+        it 'returns properly sorted json' do
+          get '/records/birthdate'
+          expect(last_response.body).to eq '[{"last_name":"Debelak","first_name":"Peter","gender":"male","favorite_color":"orange","date_of_birth":"03/20/1983"},{"last_name":"Hanson","first_name":"Alana","gender":"female","favorite_color":"brown","date_of_birth":"02/22/1984"}]'
+        end
+      end
+      
+      describe '/records/name' do
+
+        it 'responds to the route' do
+          get '/records/name'
+          expect(last_response.status).to eq 200
+        end
+
+        it 'returns properly sorted json' do
+          get '/records/name'
+          expect(last_response.body).to eq '[{"last_name":"Hanson","first_name":"Alana","gender":"female","favorite_color":"brown","date_of_birth":"02/22/1984"},{"last_name":"Debelak","first_name":"Peter","gender":"male","favorite_color":"orange","date_of_birth":"03/20/1983"}]'
+        end
+      end
+    end
   end
 end

@@ -36,7 +36,7 @@ module PersonFile
              first_name: 'Peter', 
              gender: 'male', 
              favorite_color: 'orange', 
-             date_of_birth: '03/20/1985' },
+             date_of_birth: '03/20/1983' },
            { last_name: 'Hanson', 
              first_name: 'Alana', 
              gender: 'female', 
@@ -50,7 +50,7 @@ module PersonFile
           expect{ CommandLineInterface.new ['sort_by_gender'] }.to output(
             "last_name\tfirst_name\tgender\tfavorite_color\tdate_of_birth
 Hanson\tAlana\tfemale\tbrown\t02/22/1984
-Debelak\tPeter\tmale\torange\t03/20/1985\n"
+Debelak\tPeter\tmale\torange\t03/20/1983\n"
           ).to_stdout
         end
       end
@@ -59,8 +59,8 @@ Debelak\tPeter\tmale\torange\t03/20/1985\n"
         it 'outputs appropriately sorted data' do
           expect{ CommandLineInterface.new ['sort_by_birthday'] }.to output(
             "last_name\tfirst_name\tgender\tfavorite_color\tdate_of_birth
-Hanson\tAlana\tfemale\tbrown\t02/22/1984
-Debelak\tPeter\tmale\torange\t03/20/1985\n"
+Debelak\tPeter\tmale\torange\t03/20/1983
+Hanson\tAlana\tfemale\tbrown\t02/22/1984\n"
           ).to_stdout
         end
       end
@@ -70,7 +70,7 @@ Debelak\tPeter\tmale\torange\t03/20/1985\n"
           expect{ CommandLineInterface.new ['sort_by_last_name_descending'] }.to output(
             "last_name\tfirst_name\tgender\tfavorite_color\tdate_of_birth
 Hanson\tAlana\tfemale\tbrown\t02/22/1984
-Debelak\tPeter\tmale\torange\t03/20/1985\n"
+Debelak\tPeter\tmale\torange\t03/20/1983\n"
           ).to_stdout
         end
       end
